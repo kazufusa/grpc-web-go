@@ -14,10 +14,19 @@ const (
 	port = 8080
 )
 
+var message []string
+
+func init() {
+	for i := 0; i < 100000; i++ {
+		message = append(message, "hello")
+	}
+}
+
 type server struct{}
 
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
+	// return &pb.HelloReply{Message: "Hello " + in.Name}, nil
+	return &pb.HelloReply{Message: message}, nil
 }
 
 func main() {
@@ -43,4 +52,5 @@ func allowCors(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Set("Access-Control-Expose-Headers", "grpc-status, grpc-message")
 	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, XMLHttpRequest, x-user-agent, x-grpc-web, grpc-status, grpc-message")
+	w.Header().Set("Cache-Control", "no-cache")
 }

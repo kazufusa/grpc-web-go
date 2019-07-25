@@ -19,8 +19,10 @@ export namespace HelloRequest {
 }
 
 export class HelloReply extends jspb.Message {
-  getMessage(): string;
-  setMessage(value: string): void;
+  getMessageList(): Array<string>;
+  setMessageList(value: Array<string>): void;
+  clearMessageList(): void;
+  addMessage(value: string, index?: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HelloReply.AsObject;
@@ -32,7 +34,7 @@ export class HelloReply extends jspb.Message {
 
 export namespace HelloReply {
   export type AsObject = {
-    message: string,
+    messageList: Array<string>,
   }
 }
 
