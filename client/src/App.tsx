@@ -1,12 +1,15 @@
+import axios from 'axios';
 import * as React from "react";
 import "./App.css";
 
-import { HelloRequest } from "./helloworld/helloworld_pb";
-import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
+import { MntrRequest, Mntrs } from "./helloworld/helloworld_pb";
+import { MntrAppClient } from "./helloworld/HelloworldServiceClientPb";
 
 const initialState = {
-  inputText: "World",
-  message: ""
+  grpcTime: "",
+  jsonTime: "",
+  messagepackTime: "",
+  protobufTime: "",
 };
 type State = Readonly<typeof initialState>;
 
@@ -16,33 +19,52 @@ class App extends React.Component<{}, State> {
   public render() {
     return (
       <div className="App">
-        <input
-          type="text"
-          value={this.state.inputText}
-          onChange={this.onChange}
-        />
-        <button onClick={this.onClick}>Send</button>
-        <p>{this.state.message}</p>
+        <div className="row-fluid">
+          <div className="span4 text-left">
+            <button onClick={this.onGRPC}>gRPC</button>{this.state.grpcTime}
+          </div>
+          <div className="span4 text-left">
+            <button onClick={this.onProtobuf}>protobuf</button>{this.state.protobufTime}
+          </div>
+          <div className="span4 text-left">
+            <button onClick={this.onClick}>MessagePack</button>{this.state.messagepackTime}
+          </div>
+          <div className="span4 text-left">
+            <button onClick={this.onClick}>JSON</button>{this.state.jsonTime}
+          </div>
+        </div>
       </div>
     );
   }
 
-  private onClick = () => {
-    const request = new HelloRequest();
-    request.setName(this.state.inputText);
+  private onGRPC = () => {
+    const request = new MntrRequest();
+    // request.setName(this.state.inputText);
 
-    const client = new GreeterClient("http://localhost:8080", {}, {});
-    client.sayHello(request, {}, (err, ret) => {
+    const client = new MntrAppClient("http://192.168.11.30:8080/grpc", {}, {});
+
+    const start = new Date()
+    client.get(request, {}, (err, ret) => {
       if (err || ret === null) {
         throw err;
       }
-      this.setState({ message: ret.getMessage() });
+      console.log(ret.getMntrList().length)
+      this.setState({ grpcTime: String(new Date().getTime() - start.getTime()) });
     });
   };
 
-  private onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ inputText: e.target.value });
-  };
+  private onClick = () => {this.setState({})}
+
+  private onProtobuf = () => {
+    const start = new Date()
+    axios.get("http://192.168.11.30:8080/protobuf")
+    .then((resp) => {
+      const mntrs = Mntrs.deserializeBinary(resp.data)
+      console.log(mntrs.getMntrList().length)
+      this.setState({ protobufTime: String(new Date().getTime() - start.getTime()) });
+    })
+  }
+
 }
 
 export default App;

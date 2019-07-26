@@ -2,14 +2,68 @@ syntax = "proto3";
 
 package helloworld;
 
-service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply);
+// service Greeter {
+//   rpc SayHello (HelloRequest) returns (HelloReply);
+// }
+//
+// message HelloRequest {
+//   string name = 1;
+// }
+//
+// message HelloReply {
+//   repeated string message = 1;
+// }
+
+service MntrApp {
+  rpc Get(MntrRequest) returns (Mntrs);
 }
 
-message HelloRequest {
-  string name = 1;
+message MntrRequest {
 }
 
-message HelloReply {
-  repeated string message = 1;
+message Mntrs {
+  repeated Mntr mntr = 1;
+}
+
+message Mntr {
+  float v1  = 1;
+  float v2  = 2;
+  float v3  = 3;
+  float v4  = 4;
+  float v5  = 5;
+  float v6  = 6;
+  float v7  = 7;
+  float v8  = 8;
+  float v9  = 9;
+  float v10 = 10;
+  float v11 = 11;
+  float v12 = 12;
+  float v13 = 13;
+  float v14 = 14;
+  float v15 = 15;
+  float v16 = 16;
+  float v17 = 17;
+  float v18 = 18;
+  float v19 = 19;
+  float v20 = 20;
+  float v21 = 21;
+  float v22 = 22;
+  float v23 = 23;
+  float v24 = 24;
+  float v25 = 25;
+  float v26 = 26;
+  float v27 = 27;
+  float v28 = 28;
+  float v29 = 29;
+  float v30 = 30;
+  float v31 = 31;
+  float v32 = 32;
+  float v33 = 33;
+  float v34 = 34;
+  float v35 = 35;
+  float v36 = 36;
+  float v37 = 37;
+  float v38 = 38;
+  float v39 = 39;
+  float v40 = 40;
 }

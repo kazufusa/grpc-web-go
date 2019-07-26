@@ -10,10 +10,10 @@
 import * as grpcWeb from 'grpc-web';
 
 import {
-  HelloReply,
-  HelloRequest} from './helloworld_pb';
+  MntrRequest,
+  Mntrs} from './helloworld_pb';
 
-export class GreeterClient {
+export class MntrAppClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -32,25 +32,25 @@ export class GreeterClient {
     this.options_ = options;
   }
 
-  methodInfoSayHello = new grpcWeb.AbstractClientBase.MethodInfo(
-    HelloReply,
-    (request: HelloRequest) => {
+  methodInfoGet = new grpcWeb.AbstractClientBase.MethodInfo(
+    Mntrs,
+    (request: MntrRequest) => {
       return request.serializeBinary();
     },
-    HelloReply.deserializeBinary
+    Mntrs.deserializeBinary
   );
 
-  sayHello(
-    request: HelloRequest,
+  get(
+    request: MntrRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.Error,
-               response: HelloReply) => void) {
+               response: Mntrs) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/helloworld.Greeter/SayHello',
+        '/helloworld.MntrApp/Get',
       request,
       metadata || {},
-      this.methodInfoSayHello,
+      this.methodInfoGet,
       callback);
   }
 

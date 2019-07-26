@@ -1,11 +1,16 @@
-module github.com/kazufusa/grpc-web-go/server
+module github.com/kazufusa/grpc-web-go
 
 go 1.12
 
 require (
 	github.com/golang/protobuf v1.3.2
+	github.com/gorilla/handlers v1.4.2
+	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.4.0 // indirect
 	github.com/improbable-eng/grpc-web v0.9.6
+	github.com/juntaki/pp v2.3.0+incompatible
+	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
+	github.com/mattn/go-colorable v0.1.2 // indirect
 	github.com/mwitkow/go-conntrack v0.0.0-20190716064945-2f068394615f // indirect
 	github.com/rs/cors v1.6.0 // indirect
 	github.com/stretchr/testify v1.3.0 // indirect

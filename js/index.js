@@ -1,16 +1,16 @@
 global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-const HelloRequest = require("./helloworld/helloworld_pb").HelloRequest;
-const GreeterClient = require("./helloworld/helloworld_grpc_web_pb").GreeterClient;
+const MntrRequest = require("./helloworld/helloworld_pb").MntrRequest;
+const MntrAppClient = require("./helloworld/helloworld_grpc_web_pb").MntrAppClient;
 
-const request = new HelloRequest();
-request.setName("test");
+const request = new MntrRequest();
+// request.setName("test");
 
-const client = new GreeterClient("http://localhost:8080", {}, {});
+const client = new MntrAppClient("http://localhost:8080", {}, {});
 var start = new Date()
-client.sayHello(request, {}, (err, ret) => {
+client.get(request, {}, (err, ret) => {
   if (err || ret === null) {
     throw err;
   }
-  console.info('Execution time: %dms', new Date() - start)
+  console.info(new Date() - start)
 });

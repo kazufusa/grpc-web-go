@@ -22,7 +22,7 @@ proto.helloworld = require('./helloworld_pb.js');
  * @struct
  * @final
  */
-proto.helloworld.GreeterClient =
+proto.helloworld.MntrAppClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -58,7 +58,7 @@ proto.helloworld.GreeterClient =
  * @struct
  * @final
  */
-proto.helloworld.GreeterPromiseClient =
+proto.helloworld.MntrAppPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -89,74 +89,74 @@ proto.helloworld.GreeterPromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.helloworld.HelloRequest,
- *   !proto.helloworld.HelloReply>}
+ *   !proto.helloworld.MntrRequest,
+ *   !proto.helloworld.Mntrs>}
  */
-const methodDescriptor_Greeter_SayHello = new grpc.web.MethodDescriptor(
-  '/helloworld.Greeter/SayHello',
+const methodDescriptor_MntrApp_Get = new grpc.web.MethodDescriptor(
+  '/helloworld.MntrApp/Get',
   grpc.web.MethodType.UNARY,
-  proto.helloworld.HelloRequest,
-  proto.helloworld.HelloReply,
-  /** @param {!proto.helloworld.HelloRequest} request */
+  proto.helloworld.MntrRequest,
+  proto.helloworld.Mntrs,
+  /** @param {!proto.helloworld.MntrRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helloworld.HelloReply.deserializeBinary
+  proto.helloworld.Mntrs.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.helloworld.HelloRequest,
- *   !proto.helloworld.HelloReply>}
+ *   !proto.helloworld.MntrRequest,
+ *   !proto.helloworld.Mntrs>}
  */
-const methodInfo_Greeter_SayHello = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.helloworld.HelloReply,
-  /** @param {!proto.helloworld.HelloRequest} request */
+const methodInfo_MntrApp_Get = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.helloworld.Mntrs,
+  /** @param {!proto.helloworld.MntrRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.helloworld.HelloReply.deserializeBinary
+  proto.helloworld.Mntrs.deserializeBinary
 );
 
 
 /**
- * @param {!proto.helloworld.HelloRequest} request The
+ * @param {!proto.helloworld.MntrRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.helloworld.HelloReply)}
+ * @param {function(?grpc.web.Error, ?proto.helloworld.Mntrs)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.helloworld.HelloReply>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.helloworld.Mntrs>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.helloworld.GreeterClient.prototype.sayHello =
+proto.helloworld.MntrAppClient.prototype.get =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/helloworld.Greeter/SayHello',
+      '/helloworld.MntrApp/Get',
       request,
       metadata || {},
-      methodDescriptor_Greeter_SayHello,
+      methodDescriptor_MntrApp_Get,
       callback);
 };
 
 
 /**
- * @param {!proto.helloworld.HelloRequest} request The
+ * @param {!proto.helloworld.MntrRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.helloworld.HelloReply>}
+ * @return {!Promise<!proto.helloworld.Mntrs>}
  *     A native promise that resolves to the response
  */
-proto.helloworld.GreeterPromiseClient.prototype.sayHello =
+proto.helloworld.MntrAppPromiseClient.prototype.get =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/helloworld.Greeter/SayHello',
+      '/helloworld.MntrApp/Get',
       request,
       metadata || {},
-      methodDescriptor_Greeter_SayHello);
+      methodDescriptor_MntrApp_Get);
 };
 
 

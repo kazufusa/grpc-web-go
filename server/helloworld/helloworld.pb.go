@@ -24,102 +24,462 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type HelloRequest struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+type MntrRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *HelloRequest) Reset()         { *m = HelloRequest{} }
-func (m *HelloRequest) String() string { return proto.CompactTextString(m) }
-func (*HelloRequest) ProtoMessage()    {}
-func (*HelloRequest) Descriptor() ([]byte, []int) {
+func (m *MntrRequest) Reset()         { *m = MntrRequest{} }
+func (m *MntrRequest) String() string { return proto.CompactTextString(m) }
+func (*MntrRequest) ProtoMessage()    {}
+func (*MntrRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_17b8c58d586b62f2, []int{0}
 }
 
-func (m *HelloRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_HelloRequest.Unmarshal(m, b)
+func (m *MntrRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MntrRequest.Unmarshal(m, b)
 }
-func (m *HelloRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_HelloRequest.Marshal(b, m, deterministic)
+func (m *MntrRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MntrRequest.Marshal(b, m, deterministic)
 }
-func (m *HelloRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_HelloRequest.Merge(m, src)
+func (m *MntrRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MntrRequest.Merge(m, src)
 }
-func (m *HelloRequest) XXX_Size() int {
-	return xxx_messageInfo_HelloRequest.Size(m)
+func (m *MntrRequest) XXX_Size() int {
+	return xxx_messageInfo_MntrRequest.Size(m)
 }
-func (m *HelloRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_HelloRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_HelloRequest proto.InternalMessageInfo
-
-func (m *HelloRequest) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
+func (m *MntrRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_MntrRequest.DiscardUnknown(m)
 }
 
-type HelloReply struct {
-	Message              []string `protobuf:"bytes,1,rep,name=message,proto3" json:"message,omitempty"`
+var xxx_messageInfo_MntrRequest proto.InternalMessageInfo
+
+type Mntrs struct {
+	Mntr                 []*Mntr  `protobuf:"bytes,1,rep,name=mntr,proto3" json:"mntr,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *HelloReply) Reset()         { *m = HelloReply{} }
-func (m *HelloReply) String() string { return proto.CompactTextString(m) }
-func (*HelloReply) ProtoMessage()    {}
-func (*HelloReply) Descriptor() ([]byte, []int) {
+func (m *Mntrs) Reset()         { *m = Mntrs{} }
+func (m *Mntrs) String() string { return proto.CompactTextString(m) }
+func (*Mntrs) ProtoMessage()    {}
+func (*Mntrs) Descriptor() ([]byte, []int) {
 	return fileDescriptor_17b8c58d586b62f2, []int{1}
 }
 
-func (m *HelloReply) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_HelloReply.Unmarshal(m, b)
+func (m *Mntrs) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Mntrs.Unmarshal(m, b)
 }
-func (m *HelloReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_HelloReply.Marshal(b, m, deterministic)
+func (m *Mntrs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Mntrs.Marshal(b, m, deterministic)
 }
-func (m *HelloReply) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_HelloReply.Merge(m, src)
+func (m *Mntrs) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Mntrs.Merge(m, src)
 }
-func (m *HelloReply) XXX_Size() int {
-	return xxx_messageInfo_HelloReply.Size(m)
+func (m *Mntrs) XXX_Size() int {
+	return xxx_messageInfo_Mntrs.Size(m)
 }
-func (m *HelloReply) XXX_DiscardUnknown() {
-	xxx_messageInfo_HelloReply.DiscardUnknown(m)
+func (m *Mntrs) XXX_DiscardUnknown() {
+	xxx_messageInfo_Mntrs.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_HelloReply proto.InternalMessageInfo
+var xxx_messageInfo_Mntrs proto.InternalMessageInfo
 
-func (m *HelloReply) GetMessage() []string {
+func (m *Mntrs) GetMntr() []*Mntr {
 	if m != nil {
-		return m.Message
+		return m.Mntr
 	}
 	return nil
 }
 
+type Mntr struct {
+	V1                   float32  `protobuf:"fixed32,1,opt,name=v1,proto3" json:"v1,omitempty"`
+	V2                   float32  `protobuf:"fixed32,2,opt,name=v2,proto3" json:"v2,omitempty"`
+	V3                   float32  `protobuf:"fixed32,3,opt,name=v3,proto3" json:"v3,omitempty"`
+	V4                   float32  `protobuf:"fixed32,4,opt,name=v4,proto3" json:"v4,omitempty"`
+	V5                   float32  `protobuf:"fixed32,5,opt,name=v5,proto3" json:"v5,omitempty"`
+	V6                   float32  `protobuf:"fixed32,6,opt,name=v6,proto3" json:"v6,omitempty"`
+	V7                   float32  `protobuf:"fixed32,7,opt,name=v7,proto3" json:"v7,omitempty"`
+	V8                   float32  `protobuf:"fixed32,8,opt,name=v8,proto3" json:"v8,omitempty"`
+	V9                   float32  `protobuf:"fixed32,9,opt,name=v9,proto3" json:"v9,omitempty"`
+	V10                  float32  `protobuf:"fixed32,10,opt,name=v10,proto3" json:"v10,omitempty"`
+	V11                  float32  `protobuf:"fixed32,11,opt,name=v11,proto3" json:"v11,omitempty"`
+	V12                  float32  `protobuf:"fixed32,12,opt,name=v12,proto3" json:"v12,omitempty"`
+	V13                  float32  `protobuf:"fixed32,13,opt,name=v13,proto3" json:"v13,omitempty"`
+	V14                  float32  `protobuf:"fixed32,14,opt,name=v14,proto3" json:"v14,omitempty"`
+	V15                  float32  `protobuf:"fixed32,15,opt,name=v15,proto3" json:"v15,omitempty"`
+	V16                  float32  `protobuf:"fixed32,16,opt,name=v16,proto3" json:"v16,omitempty"`
+	V17                  float32  `protobuf:"fixed32,17,opt,name=v17,proto3" json:"v17,omitempty"`
+	V18                  float32  `protobuf:"fixed32,18,opt,name=v18,proto3" json:"v18,omitempty"`
+	V19                  float32  `protobuf:"fixed32,19,opt,name=v19,proto3" json:"v19,omitempty"`
+	V20                  float32  `protobuf:"fixed32,20,opt,name=v20,proto3" json:"v20,omitempty"`
+	V21                  float32  `protobuf:"fixed32,21,opt,name=v21,proto3" json:"v21,omitempty"`
+	V22                  float32  `protobuf:"fixed32,22,opt,name=v22,proto3" json:"v22,omitempty"`
+	V23                  float32  `protobuf:"fixed32,23,opt,name=v23,proto3" json:"v23,omitempty"`
+	V24                  float32  `protobuf:"fixed32,24,opt,name=v24,proto3" json:"v24,omitempty"`
+	V25                  float32  `protobuf:"fixed32,25,opt,name=v25,proto3" json:"v25,omitempty"`
+	V26                  float32  `protobuf:"fixed32,26,opt,name=v26,proto3" json:"v26,omitempty"`
+	V27                  float32  `protobuf:"fixed32,27,opt,name=v27,proto3" json:"v27,omitempty"`
+	V28                  float32  `protobuf:"fixed32,28,opt,name=v28,proto3" json:"v28,omitempty"`
+	V29                  float32  `protobuf:"fixed32,29,opt,name=v29,proto3" json:"v29,omitempty"`
+	V30                  float32  `protobuf:"fixed32,30,opt,name=v30,proto3" json:"v30,omitempty"`
+	V31                  float32  `protobuf:"fixed32,31,opt,name=v31,proto3" json:"v31,omitempty"`
+	V32                  float32  `protobuf:"fixed32,32,opt,name=v32,proto3" json:"v32,omitempty"`
+	V33                  float32  `protobuf:"fixed32,33,opt,name=v33,proto3" json:"v33,omitempty"`
+	V34                  float32  `protobuf:"fixed32,34,opt,name=v34,proto3" json:"v34,omitempty"`
+	V35                  float32  `protobuf:"fixed32,35,opt,name=v35,proto3" json:"v35,omitempty"`
+	V36                  float32  `protobuf:"fixed32,36,opt,name=v36,proto3" json:"v36,omitempty"`
+	V37                  float32  `protobuf:"fixed32,37,opt,name=v37,proto3" json:"v37,omitempty"`
+	V38                  float32  `protobuf:"fixed32,38,opt,name=v38,proto3" json:"v38,omitempty"`
+	V39                  float32  `protobuf:"fixed32,39,opt,name=v39,proto3" json:"v39,omitempty"`
+	V40                  float32  `protobuf:"fixed32,40,opt,name=v40,proto3" json:"v40,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Mntr) Reset()         { *m = Mntr{} }
+func (m *Mntr) String() string { return proto.CompactTextString(m) }
+func (*Mntr) ProtoMessage()    {}
+func (*Mntr) Descriptor() ([]byte, []int) {
+	return fileDescriptor_17b8c58d586b62f2, []int{2}
+}
+
+func (m *Mntr) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Mntr.Unmarshal(m, b)
+}
+func (m *Mntr) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Mntr.Marshal(b, m, deterministic)
+}
+func (m *Mntr) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Mntr.Merge(m, src)
+}
+func (m *Mntr) XXX_Size() int {
+	return xxx_messageInfo_Mntr.Size(m)
+}
+func (m *Mntr) XXX_DiscardUnknown() {
+	xxx_messageInfo_Mntr.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Mntr proto.InternalMessageInfo
+
+func (m *Mntr) GetV1() float32 {
+	if m != nil {
+		return m.V1
+	}
+	return 0
+}
+
+func (m *Mntr) GetV2() float32 {
+	if m != nil {
+		return m.V2
+	}
+	return 0
+}
+
+func (m *Mntr) GetV3() float32 {
+	if m != nil {
+		return m.V3
+	}
+	return 0
+}
+
+func (m *Mntr) GetV4() float32 {
+	if m != nil {
+		return m.V4
+	}
+	return 0
+}
+
+func (m *Mntr) GetV5() float32 {
+	if m != nil {
+		return m.V5
+	}
+	return 0
+}
+
+func (m *Mntr) GetV6() float32 {
+	if m != nil {
+		return m.V6
+	}
+	return 0
+}
+
+func (m *Mntr) GetV7() float32 {
+	if m != nil {
+		return m.V7
+	}
+	return 0
+}
+
+func (m *Mntr) GetV8() float32 {
+	if m != nil {
+		return m.V8
+	}
+	return 0
+}
+
+func (m *Mntr) GetV9() float32 {
+	if m != nil {
+		return m.V9
+	}
+	return 0
+}
+
+func (m *Mntr) GetV10() float32 {
+	if m != nil {
+		return m.V10
+	}
+	return 0
+}
+
+func (m *Mntr) GetV11() float32 {
+	if m != nil {
+		return m.V11
+	}
+	return 0
+}
+
+func (m *Mntr) GetV12() float32 {
+	if m != nil {
+		return m.V12
+	}
+	return 0
+}
+
+func (m *Mntr) GetV13() float32 {
+	if m != nil {
+		return m.V13
+	}
+	return 0
+}
+
+func (m *Mntr) GetV14() float32 {
+	if m != nil {
+		return m.V14
+	}
+	return 0
+}
+
+func (m *Mntr) GetV15() float32 {
+	if m != nil {
+		return m.V15
+	}
+	return 0
+}
+
+func (m *Mntr) GetV16() float32 {
+	if m != nil {
+		return m.V16
+	}
+	return 0
+}
+
+func (m *Mntr) GetV17() float32 {
+	if m != nil {
+		return m.V17
+	}
+	return 0
+}
+
+func (m *Mntr) GetV18() float32 {
+	if m != nil {
+		return m.V18
+	}
+	return 0
+}
+
+func (m *Mntr) GetV19() float32 {
+	if m != nil {
+		return m.V19
+	}
+	return 0
+}
+
+func (m *Mntr) GetV20() float32 {
+	if m != nil {
+		return m.V20
+	}
+	return 0
+}
+
+func (m *Mntr) GetV21() float32 {
+	if m != nil {
+		return m.V21
+	}
+	return 0
+}
+
+func (m *Mntr) GetV22() float32 {
+	if m != nil {
+		return m.V22
+	}
+	return 0
+}
+
+func (m *Mntr) GetV23() float32 {
+	if m != nil {
+		return m.V23
+	}
+	return 0
+}
+
+func (m *Mntr) GetV24() float32 {
+	if m != nil {
+		return m.V24
+	}
+	return 0
+}
+
+func (m *Mntr) GetV25() float32 {
+	if m != nil {
+		return m.V25
+	}
+	return 0
+}
+
+func (m *Mntr) GetV26() float32 {
+	if m != nil {
+		return m.V26
+	}
+	return 0
+}
+
+func (m *Mntr) GetV27() float32 {
+	if m != nil {
+		return m.V27
+	}
+	return 0
+}
+
+func (m *Mntr) GetV28() float32 {
+	if m != nil {
+		return m.V28
+	}
+	return 0
+}
+
+func (m *Mntr) GetV29() float32 {
+	if m != nil {
+		return m.V29
+	}
+	return 0
+}
+
+func (m *Mntr) GetV30() float32 {
+	if m != nil {
+		return m.V30
+	}
+	return 0
+}
+
+func (m *Mntr) GetV31() float32 {
+	if m != nil {
+		return m.V31
+	}
+	return 0
+}
+
+func (m *Mntr) GetV32() float32 {
+	if m != nil {
+		return m.V32
+	}
+	return 0
+}
+
+func (m *Mntr) GetV33() float32 {
+	if m != nil {
+		return m.V33
+	}
+	return 0
+}
+
+func (m *Mntr) GetV34() float32 {
+	if m != nil {
+		return m.V34
+	}
+	return 0
+}
+
+func (m *Mntr) GetV35() float32 {
+	if m != nil {
+		return m.V35
+	}
+	return 0
+}
+
+func (m *Mntr) GetV36() float32 {
+	if m != nil {
+		return m.V36
+	}
+	return 0
+}
+
+func (m *Mntr) GetV37() float32 {
+	if m != nil {
+		return m.V37
+	}
+	return 0
+}
+
+func (m *Mntr) GetV38() float32 {
+	if m != nil {
+		return m.V38
+	}
+	return 0
+}
+
+func (m *Mntr) GetV39() float32 {
+	if m != nil {
+		return m.V39
+	}
+	return 0
+}
+
+func (m *Mntr) GetV40() float32 {
+	if m != nil {
+		return m.V40
+	}
+	return 0
+}
+
 func init() {
-	proto.RegisterType((*HelloRequest)(nil), "helloworld.HelloRequest")
-	proto.RegisterType((*HelloReply)(nil), "helloworld.HelloReply")
+	proto.RegisterType((*MntrRequest)(nil), "helloworld.MntrRequest")
+	proto.RegisterType((*Mntrs)(nil), "helloworld.Mntrs")
+	proto.RegisterType((*Mntr)(nil), "helloworld.Mntr")
 }
 
 func init() { proto.RegisterFile("helloworld.proto", fileDescriptor_17b8c58d586b62f2) }
 
 var fileDescriptor_17b8c58d586b62f2 = []byte{
-	// 143 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xc8, 0x48, 0xcd, 0xc9,
-	0xc9, 0x2f, 0xcf, 0x2f, 0xca, 0x49, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x42, 0x88,
-	0x28, 0x29, 0x71, 0xf1, 0x78, 0x80, 0x78, 0x41, 0xa9, 0x85, 0xa5, 0xa9, 0xc5, 0x25, 0x42, 0x42,
-	0x5c, 0x2c, 0x79, 0x89, 0xb9, 0xa9, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0x60, 0xb6, 0x92,
-	0x1a, 0x17, 0x17, 0x54, 0x4d, 0x41, 0x4e, 0xa5, 0x90, 0x04, 0x17, 0x7b, 0x6e, 0x6a, 0x71, 0x71,
-	0x62, 0x3a, 0x48, 0x11, 0xb3, 0x06, 0x67, 0x10, 0x8c, 0x6b, 0xe4, 0xce, 0xc5, 0xee, 0x5e, 0x94,
-	0x9a, 0x5a, 0x92, 0x5a, 0x24, 0x64, 0xc3, 0xc5, 0x11, 0x9c, 0x58, 0x09, 0xd6, 0x25, 0x24, 0xa1,
-	0x87, 0xe4, 0x02, 0x64, 0xcb, 0xa4, 0xc4, 0xb0, 0xc8, 0x14, 0xe4, 0x54, 0x26, 0xb1, 0x81, 0xdd,
-	0x69, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xe3, 0xe9, 0xb2, 0x2f, 0xbb, 0x00, 0x00, 0x00,
+	// 388 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0xd3, 0xbb, 0x8e, 0xd3, 0x40,
+	0x14, 0xc6, 0x71, 0xc5, 0x4e, 0x76, 0x61, 0xc2, 0x2e, 0x5e, 0x73, 0xc9, 0x47, 0xb8, 0x05, 0x13,
+	0x20, 0x0d, 0x91, 0xe7, 0x9c, 0xf1, 0x4d, 0xa2, 0xa1, 0xa2, 0xa2, 0xc9, 0x23, 0x20, 0x2c, 0x51,
+	0x84, 0x38, 0x38, 0x26, 0xbc, 0x20, 0x0f, 0x86, 0x3c, 0x67, 0x8e, 0x40, 0x6c, 0x97, 0xef, 0x37,
+	0x91, 0xf5, 0x2f, 0x66, 0x4c, 0xf2, 0xad, 0xdd, 0xef, 0xbb, 0x5f, 0x5d, 0xbf, 0xff, 0xba, 0x3d,
+	0xf6, 0xdd, 0xd0, 0xa5, 0xe6, 0xaf, 0x64, 0x57, 0x66, 0xfe, 0xf9, 0x30, 0xf4, 0xbb, 0xf6, 0xc7,
+	0xcf, 0xf6, 0x34, 0x64, 0xef, 0xcd, 0x6c, 0x9c, 0xa7, 0x74, 0x6d, 0xa6, 0xdf, 0x0f, 0x43, 0x8f,
+	0xc9, 0x2a, 0xde, 0xcc, 0x29, 0xd9, 0xfe, 0xf3, 0x11, 0xff, 0x7f, 0x7f, 0x9a, 0xfd, 0x9e, 0x99,
+	0xe9, 0x38, 0xd3, 0x6b, 0x13, 0x9d, 0x2d, 0x26, 0xab, 0xc9, 0x26, 0xda, 0x45, 0x67, 0xeb, 0x37,
+	0x21, 0x0a, 0x9b, 0xfc, 0x66, 0xc4, 0x61, 0xb3, 0xdf, 0x0e, 0xd3, 0xb0, 0x9d, 0xdf, 0x05, 0x66,
+	0x61, 0x17, 0x7e, 0x97, 0xb8, 0x08, 0xbb, 0xf4, 0xbb, 0xc2, 0x65, 0xd8, 0x95, 0xdf, 0x35, 0xee,
+	0x84, 0x5d, 0xfb, 0xdd, 0xe0, 0x6e, 0xd8, 0x4d, 0x9a, 0x98, 0xf8, 0x6c, 0x73, 0x18, 0x0f, 0xe3,
+	0x4f, 0x11, 0x8b, 0xb9, 0x8a, 0x15, 0x21, 0xdc, 0x53, 0x21, 0x11, 0xc6, 0x95, 0x0a, 0x8b, 0x38,
+	0x5c, 0xab, 0x38, 0x91, 0x02, 0xf7, 0x55, 0x0a, 0x91, 0x12, 0x89, 0x4a, 0x29, 0x52, 0xe1, 0x46,
+	0xa5, 0x12, 0xa9, 0x91, 0xaa, 0xd4, 0x22, 0x0d, 0x1e, 0xa8, 0x48, 0x33, 0xe5, 0x78, 0x18, 0x84,
+	0xa4, 0x99, 0x2c, 0x1e, 0xa9, 0x48, 0x33, 0x11, 0x1e, 0xab, 0x48, 0x33, 0x31, 0x16, 0x2a, 0xd2,
+	0x4c, 0x0e, 0x50, 0x91, 0x66, 0x2a, 0xf0, 0x44, 0x45, 0x9a, 0xa9, 0xc4, 0x52, 0x45, 0x9a, 0xa9,
+	0xc2, 0x53, 0x15, 0x69, 0xa6, 0x1a, 0xcf, 0x54, 0xa4, 0x99, 0x1a, 0x3c, 0x57, 0x91, 0x66, 0xce,
+	0xf1, 0x22, 0x08, 0x4b, 0x33, 0x5b, 0xbc, 0x54, 0x91, 0x66, 0x26, 0xac, 0x54, 0xa4, 0x99, 0x19,
+	0xaf, 0x54, 0xa4, 0x99, 0x1d, 0x32, 0x15, 0x69, 0xe6, 0x02, 0xaf, 0x55, 0xa4, 0x99, 0x4b, 0xac,
+	0x55, 0xa4, 0x99, 0x2b, 0xbc, 0x51, 0x91, 0x66, 0xae, 0xf1, 0x56, 0x45, 0x9a, 0xb9, 0xc1, 0x3b,
+	0x15, 0x69, 0x76, 0x39, 0x36, 0x41, 0x5c, 0x4e, 0x1f, 0xcc, 0xe5, 0x78, 0x8b, 0x3f, 0x1e, 0x8f,
+	0xa9, 0x35, 0xf1, 0xa7, 0x76, 0x48, 0x17, 0xb7, 0x2e, 0xbc, 0x3c, 0x90, 0xe5, 0xcd, 0xff, 0x07,
+	0xa7, 0x2f, 0x17, 0xfe, 0x55, 0xf1, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xc7, 0x63, 0x53, 0x08,
+	0x69, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -130,72 +490,72 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// GreeterClient is the client API for Greeter service.
+// MntrAppClient is the client API for MntrApp service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type GreeterClient interface {
-	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+type MntrAppClient interface {
+	Get(ctx context.Context, in *MntrRequest, opts ...grpc.CallOption) (*Mntrs, error)
 }
 
-type greeterClient struct {
+type mntrAppClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewGreeterClient(cc *grpc.ClientConn) GreeterClient {
-	return &greeterClient{cc}
+func NewMntrAppClient(cc *grpc.ClientConn) MntrAppClient {
+	return &mntrAppClient{cc}
 }
 
-func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
+func (c *mntrAppClient) Get(ctx context.Context, in *MntrRequest, opts ...grpc.CallOption) (*Mntrs, error) {
+	out := new(Mntrs)
+	err := c.cc.Invoke(ctx, "/helloworld.MntrApp/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// GreeterServer is the server API for Greeter service.
-type GreeterServer interface {
-	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+// MntrAppServer is the server API for MntrApp service.
+type MntrAppServer interface {
+	Get(context.Context, *MntrRequest) (*Mntrs, error)
 }
 
-// UnimplementedGreeterServer can be embedded to have forward compatible implementations.
-type UnimplementedGreeterServer struct {
+// UnimplementedMntrAppServer can be embedded to have forward compatible implementations.
+type UnimplementedMntrAppServer struct {
 }
 
-func (*UnimplementedGreeterServer) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+func (*UnimplementedMntrAppServer) Get(ctx context.Context, req *MntrRequest) (*Mntrs, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
 
-func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
-	s.RegisterService(&_Greeter_serviceDesc, srv)
+func RegisterMntrAppServer(s *grpc.Server, srv MntrAppServer) {
+	s.RegisterService(&_MntrApp_serviceDesc, srv)
 }
 
-func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelloRequest)
+func _MntrApp_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MntrRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GreeterServer).SayHello(ctx, in)
+		return srv.(MntrAppServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/helloworld.Greeter/SayHello",
+		FullMethod: "/helloworld.MntrApp/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).SayHello(ctx, req.(*HelloRequest))
+		return srv.(MntrAppServer).Get(ctx, req.(*MntrRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Greeter_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "helloworld.Greeter",
-	HandlerType: (*GreeterServer)(nil),
+var _MntrApp_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "helloworld.MntrApp",
+	HandlerType: (*MntrAppServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SayHello",
-			Handler:    _Greeter_SayHello_Handler,
+			MethodName: "Get",
+			Handler:    _MntrApp_Get_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
