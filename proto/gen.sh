@@ -23,6 +23,12 @@ protoc --proto_path=proto helloworld.proto \
 "
 
 sudo docker run -u $(id -u):$(id -g) -w /prtoc -v $PWD:/prtoc --rm -it protoc bash -c "\
+protoc --proto_path=proto timestamp.proto \
+  --js_out=import_style=commonjs:${CLIENT_OUTDIR} \
+  --grpc-web_out=import_style=typescript,mode=grpcwebtext:${CLIENT_OUTDIR} \
+"
+
+sudo docker run -u $(id -u):$(id -g) -w /prtoc -v $PWD:/prtoc --rm -it protoc bash -c "\
 protoc --proto_path=proto helloworld.proto \
   --js_out=import_style=commonjs:${CLIENT_JS_OUTDIR} \
   --grpc-web_out=import_style=commonjs,mode=grpcwebtext:${CLIENT_JS_OUTDIR} \

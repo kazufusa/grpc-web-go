@@ -1,5 +1,7 @@
 import * as jspb from "google-protobuf"
 
+import * as timestamp_pb from './timestamp_pb';
+
 export class MntrRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MntrRequest.AsObject;
@@ -35,6 +37,11 @@ export namespace Mntrs {
 }
 
 export class Mntr extends jspb.Message {
+  getMeasuredAt(): timestamp_pb.Timestamp | undefined;
+  setMeasuredAt(value?: timestamp_pb.Timestamp): void;
+  hasMeasuredAt(): boolean;
+  clearMeasuredAt(): void;
+
   getV1(): number;
   setV1(value: number): void;
 
@@ -165,6 +172,7 @@ export class Mntr extends jspb.Message {
 
 export namespace Mntr {
   export type AsObject = {
+    measuredAt?: timestamp_pb.Timestamp.AsObject,
     v1: number,
     v2: number,
     v3: number,

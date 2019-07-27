@@ -11,6 +11,8 @@
 const grpc = {};
 grpc.web = require('grpc-web');
 
+
+var timestamp_pb = require('./timestamp_pb.js')
 const proto = {};
 proto.helloworld = require('./helloworld_pb.js');
 

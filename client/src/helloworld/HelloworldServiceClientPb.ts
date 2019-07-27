@@ -9,6 +9,8 @@
 
 import * as grpcWeb from 'grpc-web';
 
+// import * as timestamp_pb from './timestamp_pb';
+
 import {
   MntrRequest,
   Mntrs} from './helloworld_pb';

@@ -1,18 +1,7 @@
 syntax = "proto3";
 
+import "timestamp.proto";
 package helloworld;
-
-// service Greeter {
-//   rpc SayHello (HelloRequest) returns (HelloReply);
-// }
-//
-// message HelloRequest {
-//   string name = 1;
-// }
-//
-// message HelloReply {
-//   repeated string message = 1;
-// }
 
 service MntrApp {
   rpc Get(MntrRequest) returns (Mntrs);
@@ -26,44 +15,45 @@ message Mntrs {
 }
 
 message Mntr {
-  float v1  = 1;
-  float v2  = 2;
-  float v3  = 3;
-  float v4  = 4;
-  float v5  = 5;
-  float v6  = 6;
-  float v7  = 7;
-  float v8  = 8;
-  float v9  = 9;
-  float v10 = 10;
-  float v11 = 11;
-  float v12 = 12;
-  float v13 = 13;
-  float v14 = 14;
-  float v15 = 15;
-  float v16 = 16;
-  float v17 = 17;
-  float v18 = 18;
-  float v19 = 19;
-  float v20 = 20;
-  float v21 = 21;
-  float v22 = 22;
-  float v23 = 23;
-  float v24 = 24;
-  float v25 = 25;
-  float v26 = 26;
-  float v27 = 27;
-  float v28 = 28;
-  float v29 = 29;
-  float v30 = 30;
-  float v31 = 31;
-  float v32 = 32;
-  float v33 = 33;
-  float v34 = 34;
-  float v35 = 35;
-  float v36 = 36;
-  float v37 = 37;
-  float v38 = 38;
-  float v39 = 39;
-  float v40 = 40;
+  google.protobuf.Timestamp measured_at = 1;
+  float v1  = 2;
+  float v2  = 3;
+  float v3  = 4;
+  float v4  = 5;
+  float v5  = 6;
+  float v6  = 7;
+  float v7  = 8;
+  float v8  = 9;
+  float v9  = 10;
+  float v10 = 11;
+  float v11 = 12;
+  float v12 = 13;
+  float v13 = 14;
+  float v14 = 15;
+  float v15 = 16;
+  float v16 = 17;
+  float v17 = 18;
+  float v18 = 19;
+  float v19 = 20;
+  float v20 = 21;
+  float v21 = 22;
+  float v22 = 23;
+  float v23 = 24;
+  float v24 = 25;
+  float v25 = 26;
+  float v26 = 27;
+  float v27 = 28;
+  float v28 = 29;
+  float v29 = 30;
+  float v30 = 31;
+  float v31 = 32;
+  float v32 = 33;
+  float v33 = 34;
+  float v34 = 35;
+  float v35 = 36;
+  float v36 = 37;
+  float v37 = 38;
+  float v38 = 39;
+  float v39 = 40;
+  float v40 = 41;
 }
